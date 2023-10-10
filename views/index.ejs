@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= subject %></title>
+    <link rel="stylesheet" href="https://unpkg.com/sanitize.css" />
+
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="col">
+        <ul>
+          <li>ПІБ: <%= fullName %></li>
+          <li>Номер групи: <%= groupNumber %></li>
+          <li>Назва дисципліни: <%= subject %></li>
+        </ul>
+      </div>
+      <div class="col"><%- include('nodeInfo'); -%></div>
+    </main>
+  </body>
+</html>

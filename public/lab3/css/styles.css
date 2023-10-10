@@ -1,0 +1,28 @@
+.email-notifications {
+  visibility: hidden;
+}
+
+.email-button {
+  border-color: #000;
+  background-color: antiquewhite;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.email-option:first-child {
+  border-right: 1px solid #000;
+  background-color: #fff;
+}
+.email-option:last-child {
+  background-color: #aa0000;
+}
+.email-notifications:checked + .email-button .email-option:first-child {
+  background-color: #008800;
+}
+.email-notifications:checked + .email-button .email-option:last-child {
+  background-color: #fff;
+}
+
+#avatar:not(:invalid) {
+  background-color: #008800;
+}

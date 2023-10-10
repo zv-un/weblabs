@@ -1,0 +1,164 @@
+<section>
+  <h1>Node.js <%= process.version %></h1>
+  <table>
+    <% if (package) { %>
+    <tr>
+      <th colspan="2"><h2>Package</h2></th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td><%= package.name %></td>
+    </tr>
+    <% if (package.description) { %>
+    <tr>
+      <th>description</th>
+      <td><%= package.description %></td>
+    </tr>
+    <% } %>
+    <tr>
+      <th>version</th>
+      <td><%= package.version %></td>
+    </tr>
+    <% if (package.dependencies) { %>
+    <tr>
+      <th>dependencies</th>
+      <td><%= package.dependencies %></td>
+    </tr>
+    <% } %> <% } %>
+    <tr>
+      <th colspan="2"><h2>OS</h2></th>
+    </tr>
+    <tr>
+      <th>hostname</th>
+      <td><%= os.hostname %></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><%= os.type %></td>
+    </tr>
+    <tr>
+      <th>platform</th>
+      <td><%= os.platform %></td>
+    </tr>
+    <tr>
+      <th>release</th>
+      <td><%= os.release %></td>
+    </tr>
+    <tr>
+      <th>cpu models</th>
+      <td><%= os.cpu.model %></td>
+    </tr>
+    <tr>
+      <th>cpu speeds</th>
+      <td><%= os.cpu.speed %></td>
+    </tr>
+    <tr>
+      <th>uptime</th>
+      <td><%= os.uptime %></td>
+    </tr>
+    <tr>
+      <th>load avg</th>
+      <td><%= os.loadavg %></td>
+    </tr>
+    <tr>
+      <th>total memory</th>
+      <td><%= os.totalmem %></td>
+    </tr>
+    <tr>
+      <th>free memory</th>
+      <td><%= os.freemem %> (<%= os.freemempercent %>)</td>
+    </tr>
+    <tr>
+      <th colspan="2"><h3>process</h3></th>
+    </tr>
+    <tr>
+      <th>resident set size</th>
+      <td><%= process.rss %></td>
+    </tr>
+    <tr>
+      <th>v8 heap total</th>
+      <td><%= process.heapTotal %></td>
+    </tr>
+    <tr>
+      <th>v8 heap used</th>
+      <td><%= process.heapUsed %></td>
+    </tr>
+    <tr>
+      <th colspan="2"><h3>timezone</h3></th>
+    </tr>
+    <tr>
+      <th>timezone</th>
+      <td><%= intlTimezone %></td>
+    </tr>
+    <tr>
+      <th>offset</th>
+      <td><%= dateTzOffset %></td>
+    </tr>
+
+    <tr>
+      <th colspan="2"><h2>Node versions</h2></th>
+    </tr>
+    <% for (let key in process.versions) { %>
+    <tr>
+      <th><%= key %></th>
+      <td><%= process.versions[key] %></td>
+    </tr>
+    <% } %> <% if (process.env.NODE_ENV) { %>
+    <tr>
+      <th colspan="2">&nbsp;</th>
+    </tr>
+    <tr>
+      <th>NODE_ENV</th>
+      <td><%= process.env.NODE_ENV %></td>
+    </tr>
+    <% } %> <% if (request) { %>
+    <tr>
+      <th colspan="2"><h2>Request</h2></th>
+    </tr>
+    <tr>
+      <th>method</th>
+      <td><%= request.method %></td>
+    </tr>
+    <tr>
+      <th>href</th>
+      <td><%= request.href %></td>
+    </tr>
+    <tr>
+      <th>remote ip</th>
+      <td><%= request.ip_addr %></td>
+    </tr>
+    <tr>
+      <th colspan="2"><h3>headers</h3></th>
+    </tr>
+    <% if (request.showOriginalUrl) { %>
+    <tr>
+      <th>original url</th>
+      <td><%= request.originalUrl %></td>
+    </tr>
+    <% } %> <% for (let key in request.headers) { %>
+    <tr>
+      <th style="white-space: nowrap"><%= key %></th>
+      <td><%= request.headers[key] %></td>
+    </tr>
+    <% } %>
+    <tr>
+      <th>cookies</th>
+      <td>
+        <table>
+          <% for (let key in request.cookies) { %>
+          <tr>
+            <th><%= key %></th>
+            <td>:</td>
+            <td style="word-break: break-all"><%= request.cookies[key] %></td>
+          </tr>
+          <% } %>
+        </table>
+      </td>
+    </tr>
+    <% } else { %>
+    <tr>
+      <th colspan="2"><h2>No request object supplied</h2></th>
+    </tr>
+    <% } %>
+  </table>
+</section>
