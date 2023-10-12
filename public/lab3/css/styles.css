@@ -26,3 +26,20 @@
 #avatar:not(:invalid) {
   background-color: #008800;
 }
+
+.error {
+  position: relative;
+}
+.error input {
+  border-color: #ff0000;
+}
+
+.error::after {
+  color: #aa0000;
+  display: block;
+  content: attr(data-error);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 12px;
+}
