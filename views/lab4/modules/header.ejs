@@ -1,0 +1,33 @@
+<style>
+  .navigation ul {
+    display: flex;
+    list-style: none;
+  }
+  .navigation a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px;
+  }
+  .search {
+    padding: 10px 5px;
+    font-size: 24px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #00000090;
+  }
+</style>
+<header>
+  <input class="search" type="text" placeholder="Search..." />
+  <nav class="navigation">
+    <ul>
+      <li><a href="?mod=main">main</a></li>
+      <li><a href="?mod=header">header</a></li>
+      <li><a href="?mod=footer">footer</a></li>
+      <li><a href="?mod=column">column</a></li>
+    </ul>
+  </nav>
+</header>

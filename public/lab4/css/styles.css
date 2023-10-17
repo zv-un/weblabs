@@ -1,0 +1,37 @@
+@keyframes bgAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  height: 100vh;
+  overflow: auto;
+}
+.bg-image {
+  animation: bgAnimation 60s infinite;
+  background-image: url("/lab4/images/bg.png");
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+}
+header,
+footer {
+  background-color: #00000090;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}

@@ -88,4 +88,11 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express", ...myInfo, ...info });
 });
 
+router.get("/lab4", (req, res) => {
+  const mod = req.query.mod;
+  const module = mod ? "lab4/modules/" + mod : "lab4";
+
+  res.render(module, { title: "Lab4 website", content: "column content" });
+});
+
 export default router;

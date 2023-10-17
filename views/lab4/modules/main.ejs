@@ -1,0 +1,104 @@
+<style>
+  @keyframes columnFooterAnimation {
+    0% {
+      transform: translate(0%, 0%);
+      opacity: 0.8;
+    }
+    25% {
+      transform: translate(25%, 25%) scale(1.5);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translate(0%, 50%) scale(1.75);
+      opacity: 0.8;
+    }
+    75% {
+      transform: translate(25%, 0%) scale(2);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0, 0%) scale(1);
+      opacity: 0.8;
+    }
+  }
+
+  .container {
+    height: calc(100% - 170px);
+    display: flex;
+    gap: 1rem;
+    color: #fff;
+    font-size: 24px;
+  }
+  .column-content {
+    flex: 1;
+    padding: 1rem;
+    background-color: #00000080;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .column:not(:first-of-type) {
+    margin: 1rem;
+  }
+
+  .column {
+    display: flex;
+    backdrop-filter: blur(3px);
+  }
+
+  .column.full {
+    flex: 1;
+  }
+
+  .column.gap {
+    flex: 2;
+    background: linear-gradient(transparent 80%, #000000);
+  }
+  .column-footer {
+    margin: auto -1rem -1rem;
+    height: 20%;
+    overflow: hidden;
+  }
+
+  .column-footer-image {
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    transform-origin: center;
+    animation: columnFooterAnimation 60s infinite;
+  }
+</style>
+<main class="container">
+  <%- include('column', { title: 'Introduction to EJS', content: ` EJS, or
+  "Embedded JavaScript", is a simple templating language that lets you generate
+  HTML markup with plain JavaScript. It's a very powerful tool for creating
+  dynamic server-side websites with Node.js.` }) -%>
+
+  <div class="column gap">
+    <div class="column-content">
+      <h1>Creating Modular EJS Templates</h1>
+      <p>
+        Modular design in EJS involves breaking down your website into reusable
+        pieces, often stored in separate files. This can include things like
+        headers, footers, and any other reusable markup. EJS's include function
+        allows you to include these pieces in your main EJS files, promoting
+        code reuse and organization.
+      </p>
+      <div class="column-footer">
+        <img
+          class="column-footer-image"
+          src="/lab4/images/column-footer.webp"
+        />
+      </div>
+    </div>
+  </div>
+  <%- include('column', { title: 'Modular CSS in EJS', content: ` Just like with
+  HTML, CSS can be made modular by breaking it down into smaller files, each
+  handling a specific part of your styling. These files can then be imported
+  into a main CSS file using the @import rule, or linked separately in your EJS
+  files. This promotes cleaner, more organized code, and makes managing your
+  styles easier as your project grows.` }) -%>
+</main>

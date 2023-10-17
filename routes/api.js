@@ -22,14 +22,13 @@ router.post("/lab3/form", upload.single("avatar"), (req, res) => {
   const formData = req.body;
 
   const validation = validateFields(req.body);
-  // const validation = validateFields({});
+  // const validation = validateFields({}); // test
   if (validation) {
     res.statusCode = 400;
     return res.json({ success: false, validation });
   }
 
   // Convert the array data to a buffer
-  console.log(req.file);
   const imageBuffer = Buffer.from(req.file.buffer);
   // Save to file
   const saveDir = "public/lab3/uploads/";

@@ -1,8 +1,11 @@
 const form = document.querySelector("#profile-form");
 const previewImage = document.getElementById("avatar-preview");
 const activeErrors = [];
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+  form.classList.add("loading");
+
   activeErrors.forEach((field) => {
     form[field].classList.remove("error");
     form[field].dataset.error = "";
@@ -28,6 +31,9 @@ form.addEventListener("submit", function (e) {
     })
     .catch((err) => {
       throw err;
+    })
+    .finally(() => {
+      form.classList.remove("loading");
     });
 });
 
