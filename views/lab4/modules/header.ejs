@@ -28,6 +28,13 @@
       <li><a href="?mod=header">header</a></li>
       <li><a href="?mod=footer">footer</a></li>
       <li><a href="?mod=column">column</a></li>
+      <li>
+        <% if (typeof user !== 'undefined' && user) { %>
+        <a href="/auth?opt=logout"><%= user %> - Завершити сеанс</a>
+        <% } else { %>
+        <a href="/auth">Авторизація</a>
+        <% } %>
+      </li>
     </ul>
   </nav>
 </header>

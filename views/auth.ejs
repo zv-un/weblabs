@@ -1,0 +1,12 @@
+<form action="/auth" method="POST">
+  <input type="hidden" name="mod" value="auth" />
+  <input type="hidden" name="opt" value="login" />
+  <input type="text" name="username" placeholder="Логін користувача" />
+  <input type="password" name="password" placeholder="Пароль користувача" />
+  <button type="submit">Авторизація</button>
+  <% if(query && query.error){ %>
+  <div><%=query.error %></div>
+  <% } else{ %>
+  <div></div>
+  <% } %>
+</form>
