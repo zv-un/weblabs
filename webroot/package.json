@@ -1,0 +1,16 @@
+{
+  "name": "zvs_web-labs",
+  "version": "1.0.0",
+  "type":"module",
+  "description": "Web-labs of ZVS;",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./Web/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Z V zvs.gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "twig": "^1.16.0"
+  }
+}
